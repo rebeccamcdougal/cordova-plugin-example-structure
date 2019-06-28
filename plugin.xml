@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="plugin-id" version="0.0.1">
+    <name>PluginName</name>
+    <description>Description of Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,structure</keywords>
+    <js-module src="www/plugin.js" name="PluginName">
+        <clobbers target="PluginName" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="PluginName">
+                <param name="ios-package" value="PluginReference" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/something.swift" />
+
+        <!-- Add in the swift-support plugin by default -->
+        <dependency id="cordova-plugin-add-swift-support" version="1.7.1"/>
+
+        <!--If you need to include any external ios frameworks, included them here and put them in the ios folder -->
+       <!-- <framework src="src/ios/SnapSDK/SCSDKCreativeKit.framework" custom="true" embed="true" />
+        <framework src="src/ios/SnapSDK/SCSDKCoreKit.framework" custom="true" embed="true" /> -->
+
+
+        <!--If you need to require a specific parameter when the plugin is installed-->
+        <preference name="APP_ID" />
+
+        <!--If you need to add any settings to the info.plist (or other config file) -->
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>PackageName</key>
+                    <string>$PACKAGE_NAME</string>
+                </dict>
+            </array>
+        </config-file>
+
+        <!-- If you need to run any hooks. Make sure to include them in a hooks directory -->
+      <!--   <hook type="after_plugin_install" src="hooks/resolveDependencies.js" />
+         <hook type="after_platform_add" src="hooks/resolveDependencies.js" />-->
+
+    </platform>
+</plugin>
+
