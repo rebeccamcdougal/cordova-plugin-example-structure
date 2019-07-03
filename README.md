@@ -9,6 +9,12 @@ To do so, do the following
 - Replace yourFunction with a name for your swift function
 - rename plugin.js to a more descriptive name but make sure to also update the references to it in plugin.xml
 
+- for android update the package name in the java folder and change it in the plugin.xml file to com.yourplugin.cordova or in the sourcefile entry to com/yourplugin/cordova
+
+Android:
+- if you need external frameworks use the build-extras.gradle. Otherwise you don't need it. 
+
+
 
 To call your plugin within your cordova project use the following code: 
 
