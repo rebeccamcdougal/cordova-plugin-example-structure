@@ -9,6 +9,28 @@
         <clobbers target="PluginName" />
     </js-module>
 
+ <!-- ANDROID -->
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="PluginName">
+                <param name="android-package" value="com.testingplugin.cordova.PluginName" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <preference name="APP_ID" />
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!--include any other changes to the android manifest here -->   
+        </config-file>
+
+        <!-- use build.gradle if you need to include external frameworks-->
+        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+        <source-file src="src/android/PluginName.java" target-dir="src/com/testingplugin/cordova"/>
+        
+    </platform>
+
+<!-- IOS -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="PluginName">
